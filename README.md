@@ -1,6 +1,7 @@
 # Greedy Heuristic Vertex Coloring Solver
 
 ## Result table
+```text
           Instance   Time, s  Colors
        myciel3.col  0.000023       4
        myciel7.col  0.000421       8
@@ -12,3 +13,4 @@
       le450_5a.col  0.001381      13
      le450_15b.col  0.002171      21
     queen11_11.col  0.000452      17
+```

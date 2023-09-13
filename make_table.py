@@ -52,7 +52,7 @@ if __name__ == '__main__':
         result_dict[ResultColumns.INSTANCE].append(instance)
         result_dict[ResultColumns.TIME].append(total_time)
         result_dict[ResultColumns.COLORS].append(number_of_colors)
-        result_dict[ResultColumns.RESULT].append(None)
+        result_dict[ResultColumns.RESULT].append(output)
 
     frame = pd.DataFrame(result_dict)
     s = frame.to_string()

@@ -40,8 +40,7 @@ if __name__ == '__main__':
     for instance in test_instances:
         instance_path = tests_path / instance
 
-        graph = Graph()
-        graph.read(instance_path)
+        graph = Graph(instance_path)
 
         start_time = time.time()
         output = color_graph_greedy_sorted(graph)

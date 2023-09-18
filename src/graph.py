@@ -16,9 +16,11 @@ def get_pattern() -> Tuple[re.Pattern[str], Tuple[str, ...]]:
 
 
 class Graph:
-    def __init__(self) -> None:
+    def __init__(self, file: Optional[Path] = None) -> None:
         self._data = defaultdict(list)
-  
+        if file:
+            self.read(file)
+
     def read(self, file: Path):
         edge_pattern, edge_group = get_pattern()
 
@@ -49,7 +51,7 @@ class Graph:
         num_edges = 0
         for vertex in self.vertexes:
             num_edges += len(self._data[vertex])
-        return num_edges
+        return num_edges / 2
 
     def as_dict(self) -> dict[int, int]:
         return dict(self._data)

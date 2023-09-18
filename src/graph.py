@@ -43,6 +43,13 @@ class Graph:
     @property
     def num_vertex(self) -> int:
         return len(self.vertexes)
+    
+    @property
+    def num_edges(self) -> int:
+        num_edges = 0
+        for vertex in self.vertexes:
+            num_edges += len(self._data[vertex])
+        return num_edges
 
     def as_dict(self) -> dict[int, int]:
         return dict(self._data)
@@ -57,9 +64,12 @@ class Graph:
         nx.draw(nx_graph, pos, ax=fig.add_subplot())
         fig.savefig(path)
 
+    def sort(self, reverse: bool = True) -> list[int]:
+        return sorted(self._data, key=lambda vertex: len(self._data[vertex]), reverse=reverse)
+
 
 if __name__ == '__main__':
     graph = Graph()
-    graph.read(Path('tests/example.col'))
+    graph.read(Path('tests/anna.col'))
 
-    graph.save_as_graph()
+    print(graph.sort())

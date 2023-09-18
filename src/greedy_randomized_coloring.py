@@ -1,13 +1,19 @@
 from collections import defaultdict
 
+import numpy as np
+
 from src.graph import Graph
 
 
-def color_graph(graph: Graph) -> dict[int, list[int]]:
+def color_graph_greedy_randomized_sorted(graph: Graph) -> dict[int, list[int]]:
     vertex_colors = dict(zip(graph.vertexes, [None] * graph.num_vertex))
 
-    for vertex in graph.vertexes:
+    vertexes_probabilities = [len(graph._data[vertex]) / graph.num_edges for vertex in graph.vertexes]
 
+    randomized_vertexes = np.random.choice(graph.vertexes, graph.num_vertex, p=vertexes_probabilities, replace=False)
+
+    for vertex in randomized_vertexes:
+        
         if vertex_colors[vertex]:
             continue
 

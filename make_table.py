@@ -6,7 +6,7 @@ from pathlib import Path
 import pandas as pd
 
 from src.graph import Graph
-from src.greedy_coloring import color_graph_greedy_sorted
+from src.greedy_coloring import color_graph_greedy_sorted_shuffled
 
 
 class ResultColumns(Enum):
@@ -43,7 +43,7 @@ if __name__ == '__main__':
         graph = Graph(instance_path)
 
         start_time = time.time()
-        output = color_graph_greedy_sorted(graph)
+        output = color_graph_greedy_sorted_shuffled(graph)
         total_time = time.time() - start_time
 
         number_of_colors = len(output)
@@ -54,5 +54,5 @@ if __name__ == '__main__':
         result_dict[ResultColumns.RESULT].append(output)
 
     frame = pd.DataFrame(result_dict)
-    s = frame.to_string(index=False)
-    print(s)
+    str_output = frame.to_string(index=False)
+    print(str_output)

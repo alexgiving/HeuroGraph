@@ -3,15 +3,15 @@
 ## Result table
 
 ```text
-          Instance   Time, s  Colors
-      myciel3.col  0.000026       4
-      myciel7.col  0.000502       8
-      school1.col  0.005579      32
-  school1_nsh.col  0.004150      32
-         anna.col  0.000242      11
-    miles1000.col  0.001426      43
-    miles1500.col  0.003532      73
-     le450_5a.col  0.001584      11
-    le450_15b.col  0.002356      18
-   queen11_11.col  0.000520      19
+       Instance  Time, s  Colors
+    myciel3.col 0.000705       3
+    myciel7.col 0.000674       7
+    school1.col 0.003374      28
+school1_nsh.col 0.002713      24
+       anna.col 0.000384       7
+  miles1000.col 0.000747      27
+  miles1500.col 0.001396      43
+   le450_5a.col 0.001580      10
+  le450_15b.col 0.001846      15
+ queen11_11.col 0.000475      12
 ```

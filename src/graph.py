@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Optional, Tuple
 
 import networkx as nx
+import numpy as np
 from matplotlib import pyplot as plt
 
 
@@ -51,7 +52,7 @@ class Graph:
         num_edges = 0
         for vertex in self.vertexes:
             num_edges += len(self._data[vertex])
-        return num_edges / 2
+        return num_edges // 2 # to remove duplicates
 
     def as_dict(self) -> dict[int, int]:
         return dict(self._data)
@@ -68,6 +69,31 @@ class Graph:
 
     def sort(self, reverse: bool = True) -> list[int]:
         return sorted(self._data, key=lambda vertex: len(self._data[vertex]), reverse=reverse)
+    
+    def sort_shuffle(self, reverse: bool = True) -> list[int]:
+        edges_dict = defaultdict(int)
+        for vertex in self._data:
+            edges_dict[vertex] = len(self._data[vertex])
+
+        sorted_edges = sorted(edges_dict, key=lambda vertex: self._data[vertex], reverse=reverse)
+        
+        permuted_vertexes = []
+
+        temp = []
+        current_edges = 0
+        for vertex_sorted_position, vertex in enumerate(sorted_edges):
+            if vertex_sorted_position == 0 or not temp:
+                temp.append(vertex)
+                current_edges = edges_dict[vertex]
+                continue
+            if edges_dict[vertex] == current_edges:
+                temp.append(vertex)
+            else:
+                shuffled_vertexes = np.random.permutation(temp)
+                permuted_vertexes.extend(shuffled_vertexes)
+                temp = []
+                current_edges = 0
+        return permuted_vertexes
 
 
 if __name__ == '__main__':

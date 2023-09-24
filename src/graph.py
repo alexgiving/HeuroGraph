@@ -75,7 +75,7 @@ class Graph:
         for vertex in self._data:
             edges_dict[vertex] = len(self._data[vertex])
 
-        sorted_edges = sorted(edges_dict, key=lambda vertex: self._data[vertex], reverse=reverse)
+        sorted_edges = self.sort()
         
         permuted_vertexes = []
 
@@ -91,8 +91,9 @@ class Graph:
             else:
                 shuffled_vertexes = np.random.permutation(temp)
                 permuted_vertexes.extend(shuffled_vertexes)
-                temp = []
-                current_edges = 0
+                temp = [vertex]
+                current_edges = edges_dict[vertex]
+        permuted_vertexes.extend(temp)
         return permuted_vertexes
 
 

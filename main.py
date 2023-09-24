@@ -1,5 +1,6 @@
 import time
 from collections import defaultdict
+from dataclasses import dataclass
 from enum import Enum
 from pathlib import Path
 
@@ -21,11 +22,20 @@ class ResultColumns(Enum):
         return self.value
 
 
+@dataclass
+class CommonParams:
+    print_graphs = True
+    tests_path = Path('tests')
+    save_coloring_path = Path('graphs')
+    save_coloring = False
+
+
 if __name__ == '__main__':
+
+    params = CommonParams()
 
     result_dict = defaultdict(list)
 
-    tests_path = Path('tests')
     test_instances = [
         'myciel3.col',
         'myciel7.col',
@@ -40,7 +50,7 @@ if __name__ == '__main__':
         ]
     
     for instance in test_instances:
-        instance_path = tests_path / instance
+        instance_path = params.tests_path / instance
 
         graph = Graph(instance_path)
 
@@ -48,23 +58,30 @@ if __name__ == '__main__':
                               color_graph_greedy_sorted,
                               color_graph_greedy_randomized_sorted]
         
-        start_time = time.time()
         best_result = None
+        total_coloring_time = 0
         for coloring_function in coloring_functions:
-            output = coloring_function(graph)
-            if best_result is None:
-                best_result = output
-                continue
-            if len(output) < len(best_result):
-                best_result = output
-        total_time = time.time() - start_time
 
-        number_of_colors = len(best_result)
+            start_coloring_time = time.time()
+            result = coloring_function(graph)
+            total_coloring_time += time.time() - start_coloring_time
+
+            if best_result is None:
+                best_result = result
+                continue
+            if result.num_colors < best_result.num_colors:
+                best_result = result
 
         result_dict[ResultColumns.INSTANCE].append(instance)
-        result_dict[ResultColumns.TIME].append(round(total_time, 2))
-        result_dict[ResultColumns.COLORS].append(number_of_colors)
-        result_dict[ResultColumns.RESULT].append(output)
+        result_dict[ResultColumns.TIME].append(round(total_coloring_time, 2))
+        result_dict[ResultColumns.COLORS].append(best_result.num_colors)
+        result_dict[ResultColumns.RESULT].append(best_result.color_vertexes)
+
+        if params.save_coloring:
+            params.save_coloring_path.mkdir(parents=True, exist_ok=True)
+            graph.visualize(params.save_coloring_path / f'{instance}.png',
+                            figsize=(25,25),
+                            node_color=best_result.ordered_colors)
 
     frame = pd.DataFrame(result_dict)
     str_output = frame.to_string(index=False)

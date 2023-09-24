@@ -57,14 +57,25 @@ class Graph:
     def as_dict(self) -> dict[int, int]:
         return dict(self._data)
     
-    def as_graph(self) -> nx.Graph:
+    def as_nxgraph(self) -> nx.Graph:
         return nx.from_dict_of_lists(self.as_dict())
     
-    def save_as_graph(self, path: Path = Path('graph.png'), figsize: Optional[Tuple[int, int]] = None) -> None:
-        nx_graph = self.as_graph()
+    def visualize(self, path: Path = Path('graph.png'),
+                    with_labels: bool = True,
+                    node_color: Optional[list] = None,
+                    figsize: Optional[Tuple[int, int]] = None) -> None:
+        nx_graph = self.as_nxgraph()
         pos = nx.spring_layout(nx_graph, seed=225)
         fig = plt.figure(figsize=figsize, layout='tight')
-        nx.draw(nx_graph, pos, ax=fig.add_subplot())
+        if node_color:
+            nx.draw_networkx(nx_graph, pos,
+                                ax=fig.add_subplot(),
+                                with_labels=with_labels,
+                                node_color=node_color)
+        else:
+            nx.draw_networkx(nx_graph, pos,
+                            ax=fig.add_subplot(),
+                            with_labels=with_labels)
         fig.savefig(path)
 
     def sort(self, reverse: bool = True) -> list[int]:

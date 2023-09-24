@@ -1,7 +1,6 @@
-from collections import defaultdict
-
 import numpy as np
 
+from src.coloring_result import ColoringResult
 from src.graph import Graph
 
 
@@ -14,15 +13,7 @@ def _get_available_color(neighbor_colors: list[int]) -> int:
             color += 1
 
 
-def _prepare_result(vertex_colors: dict[int, int]) -> dict[int, int]:
-    result = defaultdict(list)
-    for vertex in vertex_colors:
-        color = vertex_colors[vertex]
-        result[color].append(vertex)
-    return dict(result)
-
-
-def color_graph_greedy(graph: Graph) -> dict[int, list[int]]:
+def color_graph_greedy(graph: Graph) -> ColoringResult:
     vertex_colors = dict(zip(graph.vertexes, [None] * graph.num_vertex))
 
     for vertex in graph.vertexes:
@@ -32,11 +23,11 @@ def color_graph_greedy(graph: Graph) -> dict[int, list[int]]:
         neighbor_colors = [vertex_colors[neighbor] for neighbor in graph.neighbors(vertex)]
         vertex_colors[vertex] = _get_available_color(neighbor_colors)
     
-    result = _prepare_result(vertex_colors)
+    result = ColoringResult(vertex_colors)
     return result
 
 
-def color_graph_greedy_sorted(graph: Graph) -> dict[int, list[int]]:
+def color_graph_greedy_sorted(graph: Graph) -> ColoringResult:
     vertex_colors = dict(zip(graph.vertexes, [None] * graph.num_vertex))
     sorted_vertexes = graph.sort()
 
@@ -47,11 +38,11 @@ def color_graph_greedy_sorted(graph: Graph) -> dict[int, list[int]]:
         neighbor_colors = [vertex_colors[neighbor] for neighbor in graph.neighbors(vertex)]
         vertex_colors[vertex] = _get_available_color(neighbor_colors)
     
-    result = _prepare_result(vertex_colors)
+    result = ColoringResult(vertex_colors)
     return result
 
 
-def color_graph_greedy_randomized_sorted(graph: Graph) -> dict[int, list[int]]:
+def color_graph_greedy_randomized_sorted(graph: Graph) -> ColoringResult:
     vertex_colors = dict(zip(graph.vertexes, [None] * graph.num_vertex))
 
     vertexes_probabilities = [len(graph._data[vertex]) / graph.num_edges / 2 for vertex in graph.vertexes]
@@ -65,11 +56,11 @@ def color_graph_greedy_randomized_sorted(graph: Graph) -> dict[int, list[int]]:
         neighbor_colors = [vertex_colors[neighbor] for neighbor in graph.neighbors(vertex)]
         vertex_colors[vertex] = _get_available_color(neighbor_colors)
     
-    result = _prepare_result(vertex_colors)
+    result = ColoringResult(vertex_colors)
     return result
 
 
-def color_graph_greedy_sorted_shuffled(graph: Graph) -> dict[int, list[int]]:
+def color_graph_greedy_sorted_shuffled(graph: Graph) -> ColoringResult:
     vertex_colors = dict(zip(graph.vertexes, [None] * graph.num_vertex))
     sorted_vertexes = graph.sort_shuffle()
 
@@ -80,5 +71,5 @@ def color_graph_greedy_sorted_shuffled(graph: Graph) -> dict[int, list[int]]:
         neighbor_colors = [vertex_colors[neighbor] for neighbor in graph.neighbors(vertex)]
         vertex_colors[vertex] = _get_available_color(neighbor_colors)
     
-    result = _prepare_result(vertex_colors)
+    result = ColoringResult(vertex_colors)
     return result

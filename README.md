@@ -32,3 +32,20 @@ school1_nsh.col     0.04      30
   le450_15b.col     0.04      17
  queen11_11.col     0.00      15
 ```
+
+## Greedy Randomized Clique Solver
+
+Get benchmark data
+```bash
+bash scripts/download_clique.sh
+```
+
+Run evaluation script
+```bash
+python benchmark_clique.py
+```
+
+### Result table
+```text
+       Instance  Time, s  Colors
+```

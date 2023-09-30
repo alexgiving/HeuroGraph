@@ -22,7 +22,6 @@ class ResultColumns(Enum):
 
 @dataclass
 class CommonParams:
-    print_graphs = True
     tests_path = Path('data/clique')
 
 

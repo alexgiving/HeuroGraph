@@ -8,12 +8,12 @@ export PYTHONPATH=${PYTHONPATH}:$(pwd)
 
 ## Greedy Heuristic Vertex Coloring Solver
 
-### Get benchmark data
+Get benchmark data
 ```bash
 bash scripts/download_coloring.sh
 ```
 
-### Run evaluation script
+Run evaluation script
 ```bash
 python benchmark_coloring.py
 ```

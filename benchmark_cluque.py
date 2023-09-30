@@ -60,25 +60,21 @@ def main():
         ]
     
     for instance in test_instances:
-        print(instance)
         instance_path = params.tests_path / instance
 
         graph = Graph(instance_path)
         start_time = time.time()
-        result = greedy_randomized_clique(graph, iterations = 50_000)
+        result = greedy_randomized_clique(graph, iterations = 1_000)
         total_time = time.time() - start_time
 
         result_dict[ResultColumns.INSTANCE].append(instance)
         result_dict[ResultColumns.TIME].append(round(total_time, 2))
         result_dict[ResultColumns.CLIQUE].append(len(result))
-        # result_dict[ResultColumns.RESULT].append(result)
+        result_dict[ResultColumns.RESULT].append(result)
 
     frame = pd.DataFrame(result_dict)
     str_output = frame.to_string(index=False)
     print(str_output)
-
-
-    print('clc', frame[ResultColumns.CLIQUE].to_string(index=False))
 
 
 if __name__ == '__main__':

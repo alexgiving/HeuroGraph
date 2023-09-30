@@ -8,6 +8,23 @@ export PYTHONPATH=${PYTHONPATH}:$(pwd)
 
 ## Greedy Heuristic Vertex Coloring Solver
 
+Simple usage
+```python
+from pathlib import Path
+
+from graph_lib import Graph
+from graph_lib.coloring import color_graph_greedy_sorted_shuffled
+
+graph_DIMACS_path = Path('myciel3.col')
+graph = Graph(graph_DIMACS_path)
+
+coloring_result = color_graph_greedy_sorted_shuffled(graph)
+
+coloring_result.num_colors
+>> 4
+```
+
+### Benchmarking
 Get benchmark data
 ```bash
 bash scripts/download_coloring.sh
@@ -18,7 +35,6 @@ Run evaluation script
 python benchmark_coloring.py
 ```
 
-### Result table
 ```text
        Instance  Time, s  Colors
     myciel3.col     0.00       4
@@ -35,6 +51,23 @@ school1_nsh.col     0.04      30
 
 ## Greedy Randomized Clique Solver
 
+Simple usage
+```python
+from pathlib import Path
+
+from graph_lib import Graph
+from graph_lib.clique import greedy_randomized_clique
+
+graph_DIMACS_path = Path('graph.clq')
+graph = Graph(graph_DIMACS_path)
+
+coloring_result = color_graph_greedy_sorted_shuffled(graph)
+
+coloring_result.num_colors
+>> [1, 2, 3, 4]
+```
+
+### Benchmarking
 Get benchmark data
 ```bash
 bash scripts/download_clique.sh
@@ -45,7 +78,7 @@ Run evaluation script
 python benchmark_clique.py
 ```
 
-### Result table
+
 ```text
           Instance  Time, s  Clique size
         C125.9.clq     0.00           26

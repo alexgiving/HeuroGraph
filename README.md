@@ -35,6 +35,7 @@ Run evaluation script
 python benchmark_coloring.py
 ```
 
+Result table
 ```text
        Instance  Time, s  Colors
     myciel3.col     0.00       4
@@ -78,7 +79,7 @@ Run evaluation script
 python benchmark_clique.py
 ```
 
-
+Result table
 ```text
           Instance  Time, s  Clique size
         C125.9.clq     0.00           26

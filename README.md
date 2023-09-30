@@ -1,7 +1,24 @@
-# Greedy Heuristic Vertex Coloring Solver
+# Graph Heuristic Algorithms Library
 
-## Result table
+## Installation
+```bash
+source ./venv/bin/activate
+export PYTHONPATH=${PYTHONPATH}:$(pwd)
+```
 
+## Greedy Heuristic Vertex Coloring Solver
+
+Get benchmark data
+```bash
+bash scripts/download_coloring.sh
+```
+
+Run evaluation script
+```bash
+python benchmark_coloring.py
+```
+
+### Result table
 ```text
        Instance  Time, s  Colors
     myciel3.col     0.00       4

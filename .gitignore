@@ -1,3 +1,5 @@
 venv
 .vscode
 graphs
+.env
+data

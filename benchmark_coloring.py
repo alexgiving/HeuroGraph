@@ -6,10 +6,10 @@ from pathlib import Path
 
 import pandas as pd
 
-from src.graph import Graph
-from src.greedy_coloring import (color_graph_greedy_randomized_sorted,
-                                 color_graph_greedy_sorted,
-                                 color_graph_greedy_sorted_shuffled)
+from graph_lib import Graph
+from graph_lib.coloring import (color_graph_greedy_randomized_sorted,
+                                color_graph_greedy_sorted,
+                                color_graph_greedy_sorted_shuffled)
 
 
 class ResultColumns(Enum):
@@ -25,7 +25,7 @@ class ResultColumns(Enum):
 @dataclass
 class CommonParams:
     print_graphs = True
-    tests_path = Path('tests')
+    tests_path = Path('data/coloring')
     save_coloring_path = Path('graphs')
     save_coloring = False
 

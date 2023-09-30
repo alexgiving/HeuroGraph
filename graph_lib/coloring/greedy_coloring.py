@@ -1,7 +1,7 @@
 import numpy as np
 
-from src.coloring_result import ColoringResult
-from src.graph import Graph
+from graph_lib.coloring.coloring_result import ColoringResult
+from graph_lib.graph import Graph
 
 
 def _get_available_color(neighbor_colors: list[int]) -> int:

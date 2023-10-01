@@ -1,3 +1,4 @@
+[![CI](https://github.com/alexgiving/HeuroGraph/actions/workflows/test.yml/badge.svg)](https://github.com/alexgiving/HeuroGraph/actions/workflows/test.yml)
 # HeuroGraph Library
 
 <!-- ![GitHub stars](https://img.shields.io/github/stars/alexgiving/HeuroGraph-Library?style=social)

@@ -8,8 +8,8 @@ import pandas as pd
 
 from heurograph import Graph
 from heurograph.coloring import (color_graph_greedy_randomized_sorted,
-                                color_graph_greedy_sorted,
-                                color_graph_greedy_sorted_shuffled)
+                                 color_graph_greedy_sorted,
+                                 color_graph_greedy_sorted_shuffled)
 
 
 class ResultColumns(Enum):

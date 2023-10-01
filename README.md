@@ -1,9 +1,9 @@
 # HeuroGraph Library
 
-![GitHub stars](https://img.shields.io/github/stars/alexgiving/HeuroGraph-Library?style=social)
+<!-- ![GitHub stars](https://img.shields.io/github/stars/alexgiving/HeuroGraph-Library?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/alexgiving/HeuroGraph-Library?style=social)
 ![GitHub issues](https://img.shields.io/github/issues/alexgiving/HeuroGraph-Library)
-![GitHub contributors](https://img.shields.io/github/contributors/alexgiving/HeuroGraph-Library)
+![GitHub contributors](https://img.shields.io/github/contributors/alexgiving/HeuroGraph-Library) -->
 
 Welcome to the HeuroGraph-Library! This is a Python library designed for solving graph-related problems using heuristic algorithms. Whether you're working on graph coloring, maximum clique, or other graph optimization problems, this library provides a set of powerful heuristic algorithms to assist you in finding efficient solutions.
 

@@ -46,7 +46,7 @@ def greedy_randomized_clique(graph: Graph, iterations: int = 10) -> list[int]:
     return best_clique
 
 
-def greedy_randomized_mp_clique(graph: Graph, iterations: int = 10, num_proc=1) -> list[int]:
+def greedy_randomized_mp_clique(graph: Graph, iterations: int = 10, num_proc: int = -1) -> list[int]:
     best_clique = []
     vertices = graph.vertexes
 

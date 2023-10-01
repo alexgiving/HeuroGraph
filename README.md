@@ -37,10 +37,7 @@ Welcome to the HeuroGraph-Library! This is a Python library designed for solving
 ## Greedy Heuristic Vertex Coloring Solver
 
 Simple usage
-<<<<<<< HEAD
-=======
 
->>>>>>> ac0aa742a770d26c25d89f20c6a08ecc87ab69f9
 ```python
 from pathlib import Path
 
@@ -56,12 +53,8 @@ coloring_result.num_colors
 >> 4
 ```
 
-<<<<<<< HEAD
-### Benchmarking
-=======
 ### Benchmarking Coloring
 
->>>>>>> ac0aa742a770d26c25d89f20c6a08ecc87ab69f9
 Get benchmark data
 
 ```bash
@@ -75,10 +68,7 @@ python benchmark_coloring.py
 ```
 
 Result table
-<<<<<<< HEAD
-=======
 
->>>>>>> ac0aa742a770d26c25d89f20c6a08ecc87ab69f9
 ```text
        Instance  Time, s  Colors
     myciel3.col     0.00       4
@@ -96,10 +86,7 @@ school1_nsh.col     0.04      30
 ## Greedy Randomized Clique Solver
 
 Simple usage
-<<<<<<< HEAD
-=======
 
->>>>>>> ac0aa742a770d26c25d89f20c6a08ecc87ab69f9
 ```python
 from pathlib import Path
 
@@ -115,58 +102,21 @@ coloring_result.num_colors
 >> [1, 2, 3, 4]
 ```
 
-<<<<<<< HEAD
-### Benchmarking
-Get benchmark data
-=======
 ### Benchmarking Clique
 
 Get benchmark data
 
->>>>>>> ac0aa742a770d26c25d89f20c6a08ecc87ab69f9
 ```bash
 bash scripts/download_clique.sh
 ```
 
 Run evaluation script
-<<<<<<< HEAD
-=======
 
->>>>>>> ac0aa742a770d26c25d89f20c6a08ecc87ab69f9
 ```bash
 python benchmark_clique.py
 ```
 
 Result table
-<<<<<<< HEAD
-```text
-          Instance  Time, s  Clique size
-        C125.9.clq     0.00           26
-    brock200_3.clq     0.00           10
-    brock400_4.clq     0.00           16
-  johnson8-2-4.clq     0.00            4
-    p_hat300-3.clq     0.00           15
-      MANN_a27.clq     0.00           39
-    brock200_4.clq     0.00           12
-gen200_p0.9_44.clq     0.00           27
-       keller4.clq     0.00            9
-    p_hat500-3.clq     0.00           28
-       MANN_a9.clq     0.00           12
-    brock400_1.clq     0.00           15
-gen200_p0.9_55.clq     0.00           29
-   p_hat1000-1.clq     0.00            5
-       san1000.clq     0.01            7
-    brock200_1.clq     0.00           14
-    brock400_2.clq     0.00           16
-    hamming8-4.clq     0.00           16
-   p_hat1000-2.clq     0.01           21
-   sanr200_0.9.clq     0.00           27
-    brock200_2.clq     0.00            7
-    brock400_3.clq     0.00           16
- johnson16-2-4.clq     0.00            8
-   p_hat1500-1.clq     0.01            6
-   sanr400_0.7.clq     0.00           13
-=======
 
 ```text
           Instance  Time, s  Clique size
@@ -195,5 +145,4 @@ gen200_p0.9_55.clq     1.99           52
        san1000.clq     7.81           10
    sanr200_0.9.clq     1.89           40
    sanr400_0.7.clq     2.27           20
->>>>>>> ac0aa742a770d26c25d89f20c6a08ecc87ab69f9
 ```

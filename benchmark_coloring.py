@@ -6,8 +6,8 @@ from pathlib import Path
 
 import pandas as pd
 
-from graph_lib import Graph
-from graph_lib.coloring import (color_graph_greedy_randomized_sorted,
+from heurograph import Graph
+from heurograph.coloring import (color_graph_greedy_randomized_sorted,
                                 color_graph_greedy_sorted,
                                 color_graph_greedy_sorted_shuffled)
 

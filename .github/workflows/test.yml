@@ -20,13 +20,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install -r requirements_qa.txt
+        source scripts/bootstrap.sh
+
+    - name: Test isort
+      run: isort . -c
 
     - name: Test clique solver
-      run: |
-        source scripts/bootstrap.sh
-        pytest -v -m clique
+      run: pytest -v -m clique
 
     - name: Test coloring solver
-      run: |
-        source scripts/bootstrap.sh
-        pytest -v -m coloring
+      run: pytest -v -m coloring

@@ -1,7 +1,7 @@
 import numpy as np
 
-from graph_lib.coloring.coloring_result import ColoringResult
-from graph_lib.graph import Graph
+from heurograph.coloring.coloring_result import ColoringResult
+from heurograph.graph import Graph
 
 
 def _get_available_color(neighbor_colors: list[int]) -> int:

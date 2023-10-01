@@ -146,3 +146,30 @@ gen200_p0.9_55.clq     1.99           52
    sanr200_0.9.clq     1.89           40
    sanr400_0.7.clq     2.27           20
 ```
+
+
+## Contributing
+
+Contributions to HeuroGraph are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request on the GitHub repository.
+
+
+## License
+
+HeuroGraph is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more information.
+
+
+## Cite
+
+```bibtex
+@misc{HeuroGraph2023,
+  author = {Aleksei Trutnev},
+  title  = {Heuristic Graph-related problem solvers},
+  year   = {2023},
+  url    = {https://github.com/alexgiving/HeuroGraph}
+}
+```
+
+
+## Contact
+
+For any questions or inquiries, please contact alexgiving@mail.ru.

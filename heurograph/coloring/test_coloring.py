@@ -24,7 +24,7 @@ testing_functions = [
     color_graph_greedy_sorted_shuffled
     ]
 
-@pytest.mark.clique
+@pytest.mark.coloring
 @pytest.mark.parametrize('function', testing_functions)
 def test_coloring(function: Callable) -> None:
     graph = Graph()

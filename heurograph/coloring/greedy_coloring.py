@@ -14,9 +14,9 @@ def _get_available_color(neighbor_colors: list[int]) -> int:
 
 
 def color_graph_greedy(graph: Graph) -> ColoringResult:
-    vertex_colors = dict(zip(graph.vertexes, [None] * graph.num_vertex))
+    vertex_colors = dict(zip(graph.vertices, [None] * graph.num_vertex))
 
-    for vertex in graph.vertexes:
+    for vertex in graph.vertices:
         if vertex_colors[vertex]:
             continue
 
@@ -28,10 +28,10 @@ def color_graph_greedy(graph: Graph) -> ColoringResult:
 
 
 def color_graph_greedy_sorted(graph: Graph) -> ColoringResult:
-    vertex_colors = dict(zip(graph.vertexes, [None] * graph.num_vertex))
-    sorted_vertexes = graph.sort()
+    vertex_colors = dict(zip(graph.vertices, [None] * graph.num_vertex))
+    sorted_vertices = graph.sort()
 
-    for vertex in sorted_vertexes:
+    for vertex in sorted_vertices:
         if vertex_colors[vertex]:
             continue
 
@@ -43,12 +43,12 @@ def color_graph_greedy_sorted(graph: Graph) -> ColoringResult:
 
 
 def color_graph_greedy_randomized_sorted(graph: Graph) -> ColoringResult:
-    vertex_colors = dict(zip(graph.vertexes, [None] * graph.num_vertex))
+    vertex_colors = dict(zip(graph.vertices, [None] * graph.num_vertex))
 
-    vertexes_probabilities = [len(graph._data[vertex]) / graph.num_edges / 2 for vertex in graph.vertexes]
-    randomized_vertexes = np.random.choice(graph.vertexes, graph.num_vertex, p=vertexes_probabilities, replace=False)
+    vertices_probabilities = [len(graph._data[vertex]) / graph.num_edges / 2 for vertex in graph.vertices]
+    randomized_vertices = np.random.choice(graph.vertices, graph.num_vertex, p=vertices_probabilities, replace=False)
 
-    for vertex in randomized_vertexes:
+    for vertex in randomized_vertices:
         
         if vertex_colors[vertex]:
             continue
@@ -61,10 +61,10 @@ def color_graph_greedy_randomized_sorted(graph: Graph) -> ColoringResult:
 
 
 def color_graph_greedy_sorted_shuffled(graph: Graph) -> ColoringResult:
-    vertex_colors = dict(zip(graph.vertexes, [None] * graph.num_vertex))
-    sorted_vertexes = graph.sort_shuffle()
+    vertex_colors = dict(zip(graph.vertices, [None] * graph.num_vertex))
+    sorted_vertices = graph.sort_shuffle()
 
-    for vertex in sorted_vertexes:
+    for vertex in sorted_vertices:
         if vertex_colors[vertex]:
             continue
 

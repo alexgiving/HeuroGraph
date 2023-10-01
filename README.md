@@ -1,6 +1,7 @@
 # Graph Heuristic Algorithms Library
 
 ## Installation
+
 ```bash
 source ./venv/bin/activate
 export PYTHONPATH=${PYTHONPATH}:$(pwd)
@@ -9,6 +10,7 @@ export PYTHONPATH=${PYTHONPATH}:$(pwd)
 ## Greedy Heuristic Vertex Coloring Solver
 
 Simple usage
+
 ```python
 from pathlib import Path
 
@@ -24,18 +26,22 @@ coloring_result.num_colors
 >> 4
 ```
 
-### Benchmarking
+### Benchmarking Coloring
+
 Get benchmark data
+
 ```bash
 bash scripts/download_coloring.sh
 ```
 
 Run evaluation script
+
 ```bash
 python benchmark_coloring.py
 ```
 
 Result table
+
 ```text
        Instance  Time, s  Colors
     myciel3.col     0.00       4
@@ -53,6 +59,7 @@ school1_nsh.col     0.04      30
 ## Greedy Randomized Clique Solver
 
 Simple usage
+
 ```python
 from pathlib import Path
 
@@ -68,43 +75,47 @@ coloring_result.num_colors
 >> [1, 2, 3, 4]
 ```
 
-### Benchmarking
+### Benchmarking Clique
+
 Get benchmark data
+
 ```bash
 bash scripts/download_clique.sh
 ```
 
 Run evaluation script
+
 ```bash
 python benchmark_clique.py
 ```
 
 Result table
+
 ```text
           Instance  Time, s  Clique size
-        C125.9.clq     0.00           26
-    brock200_3.clq     0.00           10
-    brock400_4.clq     0.00           16
-  johnson8-2-4.clq     0.00            4
-    p_hat300-3.clq     0.00           15
-      MANN_a27.clq     0.00           39
-    brock200_4.clq     0.00           12
-gen200_p0.9_44.clq     0.00           27
-       keller4.clq     0.00            9
-    p_hat500-3.clq     0.00           28
-       MANN_a9.clq     0.00           12
-    brock400_1.clq     0.00           15
-gen200_p0.9_55.clq     0.00           29
-   p_hat1000-1.clq     0.00            5
-       san1000.clq     0.01            7
-    brock200_1.clq     0.00           14
-    brock400_2.clq     0.00           16
-    hamming8-4.clq     0.00           16
-   p_hat1000-2.clq     0.01           21
-   sanr200_0.9.clq     0.00           27
-    brock200_2.clq     0.00            7
-    brock400_3.clq     0.00           16
- johnson16-2-4.clq     0.00            8
-   p_hat1500-1.clq     0.01            6
-   sanr400_0.7.clq     0.00           13
+    brock200_1.clq     0.73           21
+    brock200_2.clq     0.24           12
+    brock200_3.clq     0.39           15
+    brock200_4.clq     0.49           17
+    brock400_1.clq     3.30           23
+    brock400_2.clq     3.04           22
+    brock400_3.clq     3.02           22
+    brock400_4.clq     3.00           23
+        C125.9.clq     0.77           34
+gen200_p0.9_44.clq     1.95           38
+gen200_p0.9_55.clq     1.99           52
+    hamming8-4.clq     0.65           16
+ johnson16-2-4.clq     0.25            8
+  johnson8-2-4.clq     0.01            4
+       keller4.clq     0.33           11
+      MANN_a27.clq    43.12          125
+       MANN_a9.clq     0.11           16
+   p_hat1000-1.clq     1.33           10
+   p_hat1000-2.clq     8.36           38
+   p_hat1500-1.clq     3.60           11
+    p_hat300-3.clq     1.88           32
+    p_hat500-3.clq     5.67           43
+       san1000.clq     7.81           10
+   sanr200_0.9.clq     1.89           40
+   sanr400_0.7.clq     2.27           20
 ```

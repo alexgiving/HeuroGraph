@@ -8,7 +8,11 @@ from graph_lib.graph import Graph
 
 def nx_clique(graph: Graph) -> list[int]:
     nx_graph = graph.as_nxgraph()
-    return next(nx.find_cliques(nx_graph))
+    best_clique = []
+    for clique in nx.find_cliques(nx_graph):
+        if len(clique) > len(best_clique):
+            best_clique = clique
+    return best_clique
 
 
 def greedy_randomized_clique(graph: Graph, iterations: int = 10) -> list[int]:

@@ -63,7 +63,7 @@ def main():
 
         graph = Graph(instance_path)
         start_time = time.time()
-        result = greedy_randomized_clique(graph, iterations = 1_000)
+        result = greedy_randomized_clique(graph, iterations = 10_000)
         total_time = time.time() - start_time
 
         result_dict[ResultColumns.INSTANCE].append(instance)

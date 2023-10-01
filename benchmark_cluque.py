@@ -6,8 +6,8 @@ from pathlib import Path
 
 import pandas as pd
 
-from graph_lib import Graph
-from graph_lib.clique import greedy_randomized_clique
+from heurograph import Graph
+from heurograph.clique import greedy_randomized_clique
 
 
 class ResultColumns(Enum):

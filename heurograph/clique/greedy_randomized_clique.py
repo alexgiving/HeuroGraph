@@ -3,7 +3,7 @@ import random
 import networkx as nx
 import numpy as np
 
-from graph_lib.graph import Graph
+from heurograph.graph import Graph
 
 
 def nx_clique(graph: Graph) -> list[int]:

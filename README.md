@@ -1,11 +1,38 @@
-# Graph Heuristic Algorithms Library
+# HeuroGraph Library
 
-## Installation
+![GitHub stars](https://img.shields.io/github/stars/alexgiving/HeuroGraph-Library?style=social)
+![GitHub forks](https://img.shields.io/github/forks/alexgiving/HeuroGraph-Library?style=social)
+![GitHub issues](https://img.shields.io/github/issues/alexgiving/HeuroGraph-Library)
+![GitHub contributors](https://img.shields.io/github/contributors/alexgiving/HeuroGraph-Library)
 
-```bash
-source ./venv/bin/activate
-export PYTHONPATH=${PYTHONPATH}:$(pwd)
-```
+Welcome to the HeuroGraph-Library! This is a Python library designed for solving graph-related problems using heuristic algorithms. Whether you're working on graph coloring, maximum clique, or other graph optimization problems, this library provides a set of powerful heuristic algorithms to assist you in finding efficient solutions.
+
+## Features
+
+- **Graph Coloring**: Solve graph coloring problems using various heuristic techniques.
+- **Maximum Clique**: Find maximum cliques in graphs through heuristic methods.
+- **Scalability**: Designed for handling large-scale graphs efficiently.
+- **Easy Integration**: Simple and straightforward integration into your Python projects.
+
+## Getting Started
+
+1. Clone this repository:
+
+   ```shell
+   git clone https://github.com/alexgiving/HeuroGraph-Library.git
+   ```
+
+2. Install dependencies
+
+    ```shell
+    pip install -r requirements.txt
+    ```
+
+3. Set environment
+
+    ```bash
+    export PYTHONPATH=${PYTHONPATH}:$(pwd)
+    ```
 
 ## Greedy Heuristic Vertex Coloring Solver
 

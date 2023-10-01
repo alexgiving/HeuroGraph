@@ -40,17 +40,17 @@ class Graph:
         return self._data[vertex]
 
     @property
-    def vertexes(self) -> list[int]:
+    def vertices(self) -> list[int]:
         return [int(vertex) for vertex in self._data]
     
     @property
     def num_vertex(self) -> int:
-        return len(self.vertexes)
+        return len(self.vertices)
     
     @property
     def num_edges(self) -> int:
         num_edges = 0
-        for vertex in self.vertexes:
+        for vertex in self.vertices:
             num_edges += len(self._data[vertex])
         return num_edges // 2 # to remove duplicates
 
@@ -59,6 +59,10 @@ class Graph:
     
     def as_nxgraph(self) -> nx.Graph:
         return nx.from_dict_of_lists(self.as_dict())
+
+    def make_complete(self, num_vertices: int = 100) -> None:
+        nx_graph = nx.complete_graph(num_vertices)
+        self._data = nx.to_dict_of_lists(nx_graph)
     
     def visualize(self, path: Path = Path('graph.png'),
                     with_labels: bool = True,
@@ -88,7 +92,7 @@ class Graph:
 
         sorted_edges = self.sort()
         
-        permuted_vertexes = []
+        permuted_vertices = []
 
         temp = []
         current_edges = 0
@@ -100,9 +104,9 @@ class Graph:
             if edges_dict[vertex] == current_edges:
                 temp.append(vertex)
             else:
-                shuffled_vertexes = np.random.permutation(temp)
-                permuted_vertexes.extend(shuffled_vertexes)
+                shuffled_vertices = np.random.permutation(temp)
+                permuted_vertices.extend(shuffled_vertices)
                 temp = [vertex]
                 current_edges = edges_dict[vertex]
-        permuted_vertexes.extend(temp)
-        return permuted_vertexes
+        permuted_vertices.extend(temp)
+        return permuted_vertices

@@ -75,7 +75,7 @@ if __name__ == '__main__':
         result_dict[ResultColumns.INSTANCE].append(instance)
         result_dict[ResultColumns.TIME].append(round(total_coloring_time, 2))
         result_dict[ResultColumns.COLORS].append(best_result.num_colors)
-        result_dict[ResultColumns.RESULT].append(best_result.color_vertexes)
+        result_dict[ResultColumns.RESULT].append(best_result.color_vertices)
 
         if params.save_coloring:
             params.save_coloring_path.mkdir(parents=True, exist_ok=True)

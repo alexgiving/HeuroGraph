@@ -1,3 +1,4 @@
+[![CI](https://github.com/alexgiving/HeuroGraph/actions/workflows/test.yml/badge.svg)](https://github.com/alexgiving/HeuroGraph/actions/workflows/test.yml)
 # HeuroGraph Library
 
 <!-- ![GitHub stars](https://img.shields.io/github/stars/alexgiving/HeuroGraph-Library?style=social)
@@ -64,7 +65,7 @@ bash scripts/download_coloring.sh
 Run evaluation script
 
 ```bash
-python benchmark_coloring.py
+python benchmark/benchmark_coloring.py
 ```
 
 Result table
@@ -113,7 +114,7 @@ bash scripts/download_clique.sh
 Run evaluation script
 
 ```bash
-python benchmark_clique.py
+python benchmark/benchmark_clique.py
 ```
 
 Result table
@@ -146,3 +147,30 @@ gen200_p0.9_55.clq     1.99           52
    sanr200_0.9.clq     1.89           40
    sanr400_0.7.clq     2.27           20
 ```
+
+
+## Contributing
+
+Contributions to HeuroGraph are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request on the GitHub repository.
+
+
+## License
+
+HeuroGraph is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more information.
+
+
+## Cite
+
+```bibtex
+@misc{HeuroGraph2023,
+  author = {Aleksei Trutnev},
+  title  = {Heuristic Graph-related problem solvers},
+  year   = {2023},
+  url    = {https://github.com/alexgiving/HeuroGraph}
+}
+```
+
+
+## Contact
+
+For any questions or inquiries, please contact alexgiving@mail.ru.

@@ -65,7 +65,7 @@ bash scripts/download_coloring.sh
 Run evaluation script
 
 ```bash
-python benchmark_coloring.py
+python benchmark/benchmark_coloring.py
 ```
 
 Result table
@@ -114,7 +114,7 @@ bash scripts/download_clique.sh
 Run evaluation script
 
 ```bash
-python benchmark_clique.py
+python benchmark/benchmark_clique.py
 ```
 
 Result table

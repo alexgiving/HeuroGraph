@@ -106,10 +106,3 @@ class Graph:
                 current_edges = edges_dict[vertex]
         permuted_vertexes.extend(temp)
         return permuted_vertexes
-
-
-if __name__ == '__main__':
-    graph = Graph()
-    graph.read(Path('tests/anna.col'))
-
-    print(graph.sort())

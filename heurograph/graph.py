@@ -54,7 +54,7 @@ class Graph:
             num_edges += len(self._data[vertex])
         return num_edges // 2 # to remove duplicates
 
-    def as_dict(self) -> dict[int, int]:
+    def as_dict(self) -> dict[int, list[int]]:
         return dict(self._data)
     
     def as_nxgraph(self) -> nx.Graph:

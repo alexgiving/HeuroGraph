@@ -139,10 +139,10 @@ gen200_p0.9_55.clq     1.99           52
       MANN_a27.clq    43.12          125
        MANN_a9.clq     0.11           16
    p_hat1000-1.clq     1.33           10
-   p_hat1000-2.clq     8.36           38
+   p_hat1000-2.clq     8.36           43
    p_hat1500-1.clq     3.60           11
     p_hat300-3.clq     1.88           32
-    p_hat500-3.clq     5.67           43
+    p_hat500-3.clq     5.67           45
        san1000.clq     7.81           10
    sanr200_0.9.clq     1.89           40
    sanr400_0.7.clq     2.27           20

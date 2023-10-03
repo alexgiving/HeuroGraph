@@ -1,60 +1,76 @@
 import random
-from functools import partial
-from multiprocessing import Pool, cpu_count
 
-import networkx as nx
 import numpy as np
 
 from heurograph.graph import Graph
+from heurograph.utils import sort_vertices_by_neighbors
 
 
-def nx_clique(graph: Graph) -> list[int]:
-    nx_graph = graph.as_nxgraph()
-    best_clique = []
-    for clique in nx.find_cliques(nx_graph):
-        if len(clique) > len(best_clique):
-            best_clique = clique
-    return best_clique
+def complete_clique(clique: list[int], clique_candidates: list[int], graph: Graph) -> list[int]:
+    for vertex in clique_candidates:
+        is_connected = True
+        for clique_vertex in clique:
+            if clique_vertex not in graph.neighbors(vertex):
+                is_connected = False
+                break
+        if is_connected:
+            clique.append(vertex)
+    return clique
 
 
-def find_clique(start_vertex: int, graph: Graph) -> list[int]:
-     clique = [start_vertex]
-     vertices_candidates = graph.neighbors(start_vertex)
-     np.random.shuffle(vertices_candidates)
-
-     for vertex in vertices_candidates:
-         is_connected = True
-         for clique_vertex in clique:
-             if clique_vertex not in graph.neighbors(vertex):
-                 is_connected = False
-                 break
-         if is_connected:
-             clique.append(vertex)
-     return clique
+def check_clique_escalating_possibility(vertex: int, best_clique: list[int], graph: Graph) -> bool:
+    return len(graph.neighbors(vertex)) > len(best_clique)
 
 
-def greedy_randomized_clique(graph: Graph, iterations: int = 10) -> list[int]:
+def randomized_clique(graph: Graph, iterations: int = 10) -> list[int]:
     best_clique = []
     vertices = graph.vertices
 
     for _ in range(iterations):
-        clique = []
-        random_vertex = random.choice(vertices)
-        clique = find_clique(random_vertex, graph)
+        initial_vertex = random.choice(vertices)
+        if not check_clique_escalating_possibility(initial_vertex, best_clique, graph):
+            continue
+
+        vertices_candidates = graph.neighbors(initial_vertex)
+        initial_clique = [initial_vertex]
+        np.random.shuffle(vertices_candidates)
+
+        clique = complete_clique(initial_clique, vertices_candidates, graph)
         if len(clique) > len(best_clique):
             best_clique = clique
     return best_clique
 
 
-def greedy_randomized_mp_clique(graph: Graph, iterations: int = 10, num_proc: int = -1) -> list[int]:
+def greedy_clique(graph: Graph, iterations: int = 10) -> list[int]:
     best_clique = []
-    vertices = graph.vertices
+    sorted_vertices = sort_vertices_by_neighbors(graph.vertices, graph, descending=True)
 
-    random_vertices = np.random.choice(vertices, iterations)
-    num_process = num_proc if num_proc > 1 else cpu_count()
+    for iteration, start_vertex in enumerate(sorted_vertices):
+        if iteration > iterations or not check_clique_escalating_possibility(start_vertex, best_clique, graph):
+            break
+        initial_clique = [start_vertex]
+        vertices_candidates = graph.neighbors(start_vertex)
+        vertices_candidates = sort_vertices_by_neighbors(vertices_candidates, graph, descending=True)
 
-    partial_get_clique =  partial(find_clique, graph=graph)
-    with Pool(num_process) as pool:
-        cliques = pool.map(partial_get_clique, random_vertices)
-    best_clique = max(cliques, key=len)
+        clique = complete_clique(initial_clique, vertices_candidates, graph)
+        if len(clique) > len(best_clique):
+            best_clique = clique
+    return best_clique
+
+
+def greedy_randomized_clique(graph: Graph, iterations: int = 10) -> list[int]:
+    best_clique = []
+    sorted_vertices = sort_vertices_by_neighbors(graph.vertices, graph, descending=True)
+
+    for start_vertex in sorted_vertices:
+        if not check_clique_escalating_possibility(start_vertex, best_clique, graph):
+            return best_clique
+        for _ in range(iterations):
+            initial_clique = [start_vertex]
+            vertices_candidates = graph.neighbors(start_vertex)
+            np.random.shuffle(vertices_candidates)
+
+            clique = complete_clique(initial_clique, vertices_candidates, graph)
+            if len(clique) > len(best_clique):
+                best_clique = clique
     return best_clique

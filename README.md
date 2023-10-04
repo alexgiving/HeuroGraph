@@ -126,12 +126,12 @@ Result table
     brock200_3.clq     0.39           15
     brock200_4.clq     0.49           17
     brock400_1.clq     3.30           23
-    brock400_2.clq     3.04           22
-    brock400_3.clq     3.02           22
-    brock400_4.clq     3.00           23
+    brock400_2.clq     3.04           23
+    brock400_3.clq     3.02           23
+    brock400_4.clq     3.00           24
         C125.9.clq     0.77           34
 gen200_p0.9_44.clq     1.95           38
-gen200_p0.9_55.clq     1.99           52
+gen200_p0.9_55.clq     1.99           53
     hamming8-4.clq     0.65           16
  johnson16-2-4.clq     0.25            8
   johnson8-2-4.clq     0.01            4
@@ -141,9 +141,9 @@ gen200_p0.9_55.clq     1.99           52
    p_hat1000-1.clq     1.33           10
    p_hat1000-2.clq     8.36           43
    p_hat1500-1.clq     3.60           11
-    p_hat300-3.clq     1.88           32
+    p_hat300-3.clq     1.88           33
     p_hat500-3.clq     5.67           45
-       san1000.clq     7.81           10
+       san1000.clq     7.81           15
    sanr200_0.9.clq     1.89           40
    sanr400_0.7.clq     2.27           20
 ```
